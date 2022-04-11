@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   describe 'Validations' do
+    # checking if product name is not present
     it 'validates :name, presence: true' do 
       product = Product.new(name: nil)
       category = Category.new()
