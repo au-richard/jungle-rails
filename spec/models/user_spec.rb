@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe "User Validations" do
+    before :each do
+      User.destroy_all
+    end
 
     it "should not create a User if :password and :password_confirmation don\'t match" do
       user = User.new(first_name: "John", last_name: "Smith", email: "john@yahoo.com", password: "123456", password_confirmation: "896575")
@@ -51,10 +54,47 @@ RSpec.describe User, type: :model do
   end
 
   describe '.authenticate_with_credentials' do
-    # examples for this class method here
+    before :each do
+      User.destroy_all
+    end
+
+    it "should get the User if email and password are valid" do
+      user_on_register = User.create!(first_name: "John", last_name: "Smith", email: "john@yahoo.com", password: "123456", password_confirmation: "123456")
+      user_on_login = User.authenticate_with_credentials(user_on_register.email, user_on_register.password)
+      expect(user_on_register.email).to eq(user_on_login.email)
+    end
+
+    it "should not get a User if both email and password are invalid" do
+      user_on_register = User.create!(first_name: "John", last_name: "Smith", email: "john@yahoo.com", password: "123456", password_confirmation: "123456")
+      user_on_login = User.authenticate_with_credentials("james@bob.com", "abcdefg")
+      # puts "User Login", user_on_login.email
+      expect(user_on_login).to eq(nil)
+    end
+
+    it "should not get a User if email is invalid" do
+      user_on_register = User.create!(first_name: "John", last_name: "Smith", email: "john@yahoo.com", password: "123456", password_confirmation: "123456")
+      user_on_login = User.authenticate_with_credentials("james@bob.com", user_on_register.password)
+      expect(user_on_login).to eq(nil)
+    end
+
+    it "should not get a User if password is invalid" do
+      user_on_register = User.create!(first_name: "John", last_name: "Smith", email: "john@yahoo.com", password: "123456", password_confirmation: "123456")
+      user_on_login = User.authenticate_with_credentials(user_on_register.email, "abcdefg")
+      expect(user_on_login).to eq(nil)
+    end
+
+    it "get the User even if email is uppercase" do
+      user_on_register = User.create!(first_name: "John", last_name: "Smith", email: "john@yahoo.com", password: "123456", password_confirmation: "123456")
+      user_on_login = User.authenticate_with_credentials(user_on_register.email.upcase, user_on_register.password)
+      expect(user_on_register.email).to eq(user_on_login.email)
+    end
+
+    it "get the User even if input email has whitespace" do
+      user_on_register = User.create!(first_name: "John", last_name: "Smith", email: "john@yahoo.com", password: "123456", password_confirmation: "123456")
+      user_on_login = User.authenticate_with_credentials("  " + user_on_register.email + "  ", user_on_register.password)
+      expect(user_on_register.email).to eq(user_on_login.email)
+    end
   end
-
-
 end
 
 
