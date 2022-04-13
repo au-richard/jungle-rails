@@ -87,7 +87,7 @@ RSpec.describe User, type: :model do
       user_on_register = User.create!(first_name: "John", last_name: "Smith", email: "john@yahoo.com", password: "123456", password_confirmation: "123456")
       user_on_login = User.authenticate_with_credentials(user_on_register.email.upcase, user_on_register.password)
       expect(user_on_register.email).to eq(user_on_login.email)
-    end
+    end    
 
     it "get the User even if input email has whitespace" do
       user_on_register = User.create!(first_name: "John", last_name: "Smith", email: "john@yahoo.com", password: "123456", password_confirmation: "123456")
