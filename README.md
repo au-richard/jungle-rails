@@ -1,6 +1,14 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application utilizing Rails for client - server requests.
+
+## Final Product
+
+!["This is the Jungle Homepage."]()
+
+!["This is the form for booking an appointment."](https://github.com/au-richard/scheduler/blob/master/docs/appointment-form.png)
+
+!["This is the confirmation for deleting an appointment."](https://github.com/au-richard/scheduler/blob/master/docs/delete-appointment-confirmation.png)
 
 ## Additional Steps for Apple M1 Machines
 
