@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "A User can navigate to product details page by clicking on a product", type: :feature, js: true do
+RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
 
   # SETUP
   before :each do
@@ -14,21 +14,17 @@ RSpec.feature "A User can navigate to product details page by clicking on a prod
     )
   end
 
-  scenario "clicking on the details button leads product detail page" do
+  scenario "They see all products" do
     # ACT
     visit root_path
 
     # Selector and Action Click
-    find_link("Details").trigger("click")
-    
+    click_on("Add")
+
     # DEBUG
-    # Waiting 1 second in order for Page Load
-    # sleep 1
-    # save_and_open_screenshot
-    # puts page.html
-    
+    save_and_open_screenshot
+
     # VERIFY
-    expect(page).to have_css 'section.products-show'
-    
+    expect(page).to have_css 'article.product'
   end
 end
