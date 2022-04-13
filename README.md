@@ -4,18 +4,11 @@ A mini e-commerce application utilizing Rails for client - server requests.
 
 ## Final Product
 
-!["This is the Jungle Homepage."]()
+!["This is the Jungle Homepage."](https://github.com/au-richard/jungle-rails/blob/master/docs/homepage.png)
 
-!["This is the form for booking an appointment."](https://github.com/au-richard/scheduler/blob/master/docs/appointment-form.png)
+!["This is the product detail page."](https://github.com/au-richard/jungle-rails/blob/master/docs/product_detail_page.png)
 
-!["This is the confirmation for deleting an appointment."](https://github.com/au-richard/scheduler/blob/master/docs/delete-appointment-confirmation.png)
-
-## Additional Steps for Apple M1 Machines
-
-1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
-1. Install ImageMagick `brew install imagemagick imagemagick@6 --build-from-source`
-2. Remove Gemfile.lock
-3. Replace Gemfile with version provided [here](https://gist.githubusercontent.com/FrancisBourgouin/831795ae12c4704687a0c2496d91a727/raw/ce8e2104f725f43e56650d404169c7b11c33a5c5/Gemfile)
+!["This is the cart checkout page."](https://github.com/au-richard/jungle-rails/blob/master/docs/cart_checkout_page.png)
 
 ## Setup
 
@@ -39,3 +32,35 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+* Sass-Rails ~> 5.0.x
+* Bootstrap-Sass ~> 3.3.6
+* Uglifier >= 1.3.0
+* jQuery-Rails
+* Turbolinks
+* Jbuilder ~> 2.0.x
+* Sdoc ~> 0.4.0
+* Bcrypt ~> 3.1.7
+* Puma 
+* Font-Awesome-Rails
+* Money-Rails
+* Carrierwave
+* RMagick
+* Faker
+* Newrelic_rpm
+* Rails_12factor
+
+## Dev Dependencies
+
+* Rspec-Rails ~> 3.5.x
+* Byebug
+* Quiet-Assets
+* Dotenv-Rails
+* Web-Console ~> 2.0.x
+* Spring
+
+## Testing
+
+* Capybara
+* Poltergeist
+* Database_Cleaner
+
