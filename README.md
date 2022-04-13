@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application utilizing Rails for client - server requests.
+A mini e-commerce application utilizing Rails for client - server response and requests.
 
 ## Final Product
 
